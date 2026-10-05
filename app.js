@@ -1,14 +1,32 @@
 
 let PART1=[],PART2=[],PART3=[],ALLP1P2=[];
 const BYID={};
-function norm(o,part){const tag=part==='p1'?'P1':part==='p2'?'P2':'LW';return{q:o.n,t:o.q,a:o.A,b:o.B,c:o.C,ans:o.answer,img:o.imageDesc,info:o.info||null,id:part+'-'+o.n,part:tag};}
+function norm(o,part){const tag=part==='p1'?'P1':part==='p2'?'P2':'LW';return{q:o.n,t:o.q,a:o.A,b:o.B,c:o.C,ans:o.answer,img:o.imageDesc,icon:o.icon||null,info:o.info||null,id:part+'-'+o.n,part:tag};}
 function whyHtml(q){return q.info?`<span class="fb-why">💡 ${esc(q.info)}</span>`:'';}
 const PICS={"p1-1":"assets/signs/q1.png","p1-8":"assets/signs/q8.png","p1-15":"assets/signs/q15.png","p1-22":"assets/signs/q22.png","p1-24":"assets/signs/q24.png","p1-28":"assets/signs/q28.png","p1-29":"assets/signs/q29.png","p1-38":"assets/signs/q38.png","p1-45":"assets/signs/q45.png","p1-52":"assets/signs/q52.png","p1-59":"assets/signs/q59.png","p2-3":"assets/signs/p2-q3.png","p2-6":"assets/signs/p2-q6.png","p2-9":"assets/signs/p2-q9.png","p2-12":"assets/signs/p2-q12.png","p2-15":"assets/signs/p2-q15.png","p2-18":"assets/signs/p2-q18.png","p2-22":"assets/signs/p2-q22.png","p2-26":"assets/signs/p2-q26.png","p2-29":"assets/signs/p2-q29.png","p2-32":"assets/signs/p2-q32.png","p2-36":"assets/signs/p2-q36.png","p2-40":"assets/signs/p2-q40.png","p2-43":"assets/signs/p2-q43.png","p2-47":"assets/signs/p2-q47.png","p2-50":"assets/signs/p2-q50.png","p2-54":"assets/signs/p2-q54.png","p2-57":"assets/signs/p2-q57.png","p2-60":"assets/signs/p2-q60.png"};
 function picFor(q){return PICS[q.id]||null;}
+const ICONS={
+book:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19a2 2 0 0 0 2 2h13"/><path d="M9 7h7"/></svg>',
+speed:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 16a8 8 0 0 1 16 0"/><path d="M12 16l4.5-5.5"/><circle cx="12" cy="16" r="1.4" fill="currentColor"/></svg>',
+ban:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M5.5 5.5l13 13"/></svg>',
+warning:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5L2.5 20h19z"/><path d="M12 10v4.5"/><circle cx="12" cy="17.2" r="0.6" fill="currentColor"/></svg>',
+car:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 16v-3.5L5.2 8h10.6l2.7 4.5H21V16"/><path d="M3 16h18"/><circle cx="7.5" cy="16.5" r="1.8"/><circle cx="16.5" cy="16.5" r="1.8"/></svg>',
+train:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="6" y="3" width="12" height="13" rx="2.5"/><path d="M6 10h12"/><circle cx="9.5" cy="13.5" r="0.8" fill="currentColor"/><circle cx="14.5" cy="13.5" r="0.8" fill="currentColor"/><path d="M9 19l-1.5 2M15 19l1.5 2"/></svg>',
+license:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="6" width="18" height="12" rx="2"/><circle cx="8.5" cy="11.5" r="2"/><path d="M5.5 15.5c.6-1.4 1.7-2 3-2s2.4.6 3 2"/><path d="M14 10.5h4M14 13.5h4"/></svg>',
+fine:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.5" y="7" width="19" height="10" rx="2"/><circle cx="12" cy="12" r="2.6"/><path d="M6 10v.01M18 14v.01" stroke-linecap="round"/></svg>',
+helmet:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15a8 8 0 0 1 16 0v1.5H4z"/><path d="M4 15h10"/><path d="M13 10.5h4.5"/></svg>',
+seatbelt:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M7 3l10 18"/><rect x="13.5" y="14.5" width="6" height="5" rx="1"/></svg>',
+child:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="9" cy="6.5" r="2.5"/><path d="M4.5 20v-4.5L9 13l4.5 2.5V20"/><circle cx="17" cy="10" r="1.8"/><path d="M14.5 20v-3.5L17 15l2.5 1.5V20"/></svg>',
+phone:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="8" y="2.5" width="8" height="19" rx="2"/><path d="M11 18.5h2"/></svg>',
+drink:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2.5h4"/><path d="M10.5 2.5v4L8.5 11v9a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1v-9l-2-4.5v-4"/><path d="M8.5 14.5h7"/></svg>',
+doc:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4"/><path d="M10 12h5M10 15.5h5"/></svg>'
+};
 function signHtml(q){
   const pic=picFor(q);
-  if(!q.img&&!pic)return'';
-  return `<div class="sign">${pic?`<img src="${pic}" alt="Traffic sign ${q.part} Q${q.q}" loading="lazy">`:''}${q.img?`<span><b>Sign:</b> ${esc(q.img)}</span>`:''}</div>`;
+  if(pic) return `<div class="sign">${`<img src="${pic}" alt="Traffic sign ${q.part} Q${q.q}" loading="lazy">`}${q.img?`<span><b>Sign:</b> ${esc(q.img)}</span>`:''}</div>`;
+  if(q.icon&&ICONS[q.icon]) return `<div class="sign"><span class="lwic">${ICONS[q.icon]}</span></div>`;
+  if(q.img) return `<div class="sign"><span><b>Sign:</b> ${esc(q.img)}</span></div>`;
+  return '';
 }
 
 let bank=localStorage.getItem('lto-bank')||'p1';

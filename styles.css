@@ -694,3 +694,7 @@ select.btn-w {
   color: var(--blue); font-size: 13px; font-weight: 700;
   padding: 10px 4px 2px; text-align: center;
 }
+
+/* law topic pictograms */
+.lwic { display: inline-flex; color: var(--blue); }
+.lwic svg { width: 92px; height: 92px; }

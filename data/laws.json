@@ -7,7 +7,8 @@
     "C": "Motorcycle Helmet Act",
     "answer": "A",
     "imageDesc": null,
-    "info": "RA 4136 compiles PH land transportation and traffic laws; it is the basis of most LTO exam questions."
+    "info": "RA 4136 compiles PH land transportation and traffic laws; it is the basis of most LTO exam questions.",
+    "icon": "book"
   },
   {
     "n": 2,
@@ -17,7 +18,8 @@
     "C": "20 kph",
     "answer": "A",
     "imageDesc": null,
-    "info": "RA 4136 Sec 35 caps city/municipal streets at 30 kph; open country roads allow up to 80 kph for light vehicles."
+    "info": "RA 4136 Sec 35 caps city/municipal streets at 30 kph; open country roads allow up to 80 kph for light vehicles.",
+    "icon": "speed"
   },
   {
     "n": 3,
@@ -27,7 +29,8 @@
     "C": "80 kph",
     "answer": "C",
     "imageDesc": null,
-    "info": "RA 4136 Sec 35 sets 80 kph for light vehicles on open country roads without blind corners or dense habitation."
+    "info": "RA 4136 Sec 35 sets 80 kph for light vehicles on open country roads without blind corners or dense habitation.",
+    "icon": "speed"
   },
   {
     "n": 4,
@@ -37,7 +40,8 @@
     "C": "40 kph",
     "answer": "A",
     "imageDesc": null,
-    "info": "Crowded streets limit speed to 20 kph under RA 4136 because pedestrians and hazards are dense."
+    "info": "Crowded streets limit speed to 20 kph under RA 4136 because pedestrians and hazards are dense.",
+    "icon": "speed"
   },
   {
     "n": 5,
@@ -47,7 +51,8 @@
     "C": "allowed for motorcycles",
     "answer": "A",
     "imageDesc": null,
-    "info": "RA 4136 bans driving or parking on sidewalks and paths not intended for vehicular traffic; they are for pedestrians."
+    "info": "RA 4136 bans driving or parking on sidewalks and paths not intended for vehicular traffic; they are for pedestrians.",
+    "icon": "ban"
   },
   {
     "n": 6,
@@ -57,7 +62,8 @@
     "C": "prohibited under RA 4136",
     "answer": "C",
     "imageDesc": null,
-    "info": "RA 4136 prohibits hitching persons or vehicles to a motor vehicle because a fall or swing causes crashes."
+    "info": "RA 4136 prohibits hitching persons or vehicles to a motor vehicle because a fall or swing causes crashes.",
+    "icon": "ban"
   },
   {
     "n": 7,
@@ -67,7 +73,8 @@
     "C": "a red flag at least 30 cm long and wide",
     "answer": "C",
     "imageDesc": null,
-    "info": "RA 4136 requires a red flag at least 30 cm long and wide on every projecting end of an over-1-meter load."
+    "info": "RA 4136 requires a red flag at least 30 cm long and wide on every projecting end of an over-1-meter load.",
+    "icon": "warning"
   },
   {
     "n": 8,
@@ -77,7 +84,8 @@
     "C": "red or amber",
     "answer": "A",
     "imageDesc": null,
-    "info": "RA 4136 Sec 34 requires headlights in white or yellowish white for proper road illumination."
+    "info": "RA 4136 Sec 34 requires headlights in white or yellowish white for proper road illumination.",
+    "icon": "car"
   },
   {
     "n": 9,
@@ -87,7 +95,8 @@
     "C": "50 meters",
     "answer": "A",
     "imageDesc": null,
-    "info": "RA 4136 Sec 34 requires red taillights visible within 100 meters so following drivers see you at night."
+    "info": "RA 4136 Sec 34 requires red taillights visible within 100 meters so following drivers see you at night.",
+    "icon": "car"
   },
   {
     "n": 10,
@@ -97,7 +106,8 @@
     "C": "unnecessary or disagreeable smoke or noise",
     "answer": "C",
     "imageDesc": null,
-    "info": "RA 4136 mandates mufflers and bans operating a vehicle so as to make unnecessary smoke or noise."
+    "info": "RA 4136 mandates mufflers and bans operating a vehicle so as to make unnecessary smoke or noise.",
+    "icon": "ban"
   },
   {
     "n": 11,
@@ -107,7 +117,8 @@
     "C": "prohibited",
     "answer": "C",
     "imageDesc": null,
-    "info": "LTO rules ban overtaking on curves or grades with under 500 ft (150 m) visibility; you cannot see oncoming traffic."
+    "info": "LTO rules ban overtaking on curves or grades with under 500 ft (150 m) visibility; you cannot see oncoming traffic.",
+    "icon": "warning"
   },
   {
     "n": 12,
@@ -117,7 +128,8 @@
     "C": "prohibited, except on multi-lane one-direction roads where you may pass on the right",
     "answer": "C",
     "imageDesc": null,
-    "info": "LTO CDE rules ban intersection overtaking due to crossing conflicts, except passing on the right on 2+ lane one-way roads."
+    "info": "LTO CDE rules ban intersection overtaking due to crossing conflicts, except passing on the right on 2+ lane one-way roads.",
+    "icon": "warning"
   },
   {
     "n": 13,
@@ -127,7 +139,8 @@
     "C": "prohibited",
     "answer": "C",
     "imageDesc": null,
-    "info": "Never overtake at a railway crossing; a stalled or slow pass in front of a train is fatal."
+    "info": "Never overtake at a railway crossing; a stalled or slow pass in front of a train is fatal.",
+    "icon": "train"
   },
   {
     "n": 14,
@@ -137,7 +150,8 @@
     "C": "the road is a two-way single lane",
     "answer": "A",
     "imageDesc": null,
-    "info": "LTO CDE allows passing on the right when the vehicle ahead is visibly turning left or on 2+ lanes in one direction."
+    "info": "LTO CDE allows passing on the right when the vehicle ahead is visibly turning left or on 2+ lanes in one direction.",
+    "icon": "car"
   },
   {
     "n": 15,
@@ -147,7 +161,8 @@
     "C": "a full stop only",
     "answer": "A",
     "imageDesc": null,
-    "info": "RA 4136 requires a full stop before through highways/railroads, but allows slowing to 5 mph (8 kph) when clearly no hazard exists."
+    "info": "RA 4136 requires a full stop before through highways/railroads, but allows slowing to 5 mph (8 kph) when clearly no hazard exists.",
+    "icon": "warning"
   },
   {
     "n": 16,
@@ -157,7 +172,8 @@
     "C": "the vehicle on the right",
     "answer": "C",
     "imageDesc": null,
-    "info": "LTO right-of-way rules: the vehicle on the right has priority when paths cross from different directions."
+    "info": "LTO right-of-way rules: the vehicle on the right has priority when paths cross from different directions.",
+    "icon": "warning"
   },
   {
     "n": 17,
@@ -167,7 +183,8 @@
     "C": "the downhill vehicle",
     "answer": "A",
     "imageDesc": null,
-    "info": "LTO right-of-way rules favor the uphill vehicle, since stopping and restarting uphill is harder and riskier."
+    "info": "LTO right-of-way rules favor the uphill vehicle, since stopping and restarting uphill is harder and riskier.",
+    "icon": "warning"
   },
   {
     "n": 18,
@@ -177,7 +194,8 @@
     "C": "Php 3,000",
     "answer": "C",
     "imageDesc": null,
-    "info": "Driving without a valid license carries a standard Php 3,000 LTO fine under the traffic violation schedule."
+    "info": "Driving without a valid license carries a standard Php 3,000 LTO fine under the traffic violation schedule.",
+    "icon": "license"
   },
   {
     "n": 19,
@@ -187,7 +205,8 @@
     "C": "Php 10,000",
     "answer": "C",
     "imageDesc": null,
-    "info": "Unregistered operation is fined Php 10,000 against the owner; always keep registration updated."
+    "info": "Unregistered operation is fined Php 10,000 against the owner; always keep registration updated.",
+    "icon": "doc"
   },
   {
     "n": 20,
@@ -197,7 +216,8 @@
     "C": "Php 1,000",
     "answer": "A",
     "imageDesc": null,
-    "info": "Reckless driving (operating without reasonable caution) is fined Php 2,000 on first offense per LTO schedule."
+    "info": "Reckless driving (operating without reasonable caution) is fined Php 2,000 on first offense per LTO schedule.",
+    "icon": "fine"
   },
   {
     "n": 21,
@@ -207,7 +227,8 @@
     "C": "the birthdate of the licensee",
     "answer": "C",
     "imageDesc": null,
-    "info": "RA 10930 sets 5-year validity counted from the licensee's birthdate, unless suspended or revoked."
+    "info": "RA 10930 sets 5-year validity counted from the licensee's birthdate, unless suspended or revoked.",
+    "icon": "license"
   },
   {
     "n": 22,
@@ -217,7 +238,8 @@
     "C": "pays double the fee",
     "answer": "A",
     "imageDesc": null,
-    "info": "RA 10930 rewards violation-free drivers with 10-year validity on renewal; any demerit limits it to 5 years."
+    "info": "RA 10930 rewards violation-free drivers with 10-year validity on renewal; any demerit limits it to 5 years.",
+    "icon": "license"
   },
   {
     "n": 23,
@@ -227,7 +249,8 @@
     "C": "Student Driver's Permit",
     "answer": "C",
     "imageDesc": null,
-    "info": "RA 10930 expressly excludes student permits, which remain valid for only 1 year as a learning authority."
+    "info": "RA 10930 expressly excludes student permits, which remain valid for only 1 year as a learning authority.",
+    "icon": "license"
   },
   {
     "n": 24,
@@ -237,7 +260,8 @@
     "C": "Php 100,000 to Php 200,000",
     "answer": "B",
     "imageDesc": null,
-    "info": "RA 10586 punishes DUI without injury with 3 months jail plus Php 20,000–80,000; injury raises it to Php 100,000–200,000."
+    "info": "RA 10586 punishes DUI without injury with 3 months jail plus Php 20,000–80,000; injury raises it to Php 100,000–200,000.",
+    "icon": "drink"
   },
   {
     "n": 25,
@@ -247,7 +271,8 @@
     "C": "third",
     "answer": "A",
     "imageDesc": null,
-    "info": "RA 10586 confiscates and perpetually revokes a professional license on the very first DUI conviction."
+    "info": "RA 10586 confiscates and perpetually revokes a professional license on the very first DUI conviction.",
+    "icon": "drink"
   },
   {
     "n": 26,
@@ -257,7 +282,8 @@
     "C": "5 years",
     "answer": "B",
     "imageDesc": null,
-    "info": "RA 10586 suspends a non-pro license for 12 months on first conviction, and revokes it perpetually on the second."
+    "info": "RA 10586 suspends a non-pro license for 12 months on first conviction, and revokes it perpetually on the second.",
+    "icon": "drink"
   },
   {
     "n": 27,
@@ -267,7 +293,8 @@
     "C": "Php 5,000",
     "answer": "C",
     "imageDesc": null,
-    "info": "RA 10913 fines handheld-device use while driving Php 5,000 (1st), Php 10,000 (2nd), Php 15,000 + 3-month suspension (3rd)."
+    "info": "RA 10913 fines handheld-device use while driving Php 5,000 (1st), Php 10,000 (2nd), Php 15,000 + 3-month suspension (3rd).",
+    "icon": "phone"
   },
   {
     "n": 28,
@@ -277,7 +304,8 @@
     "C": "Php 15,000",
     "answer": "B",
     "imageDesc": null,
-    "info": "RA 10913 escalates to Php 10,000 on second offense, then Php 15,000 plus 3-month suspension on third."
+    "info": "RA 10913 escalates to Php 10,000 on second offense, then Php 15,000 plus 3-month suspension on third.",
+    "icon": "phone"
   },
   {
     "n": 29,
@@ -287,7 +315,8 @@
     "C": "Php 5,000 and warning",
     "answer": "B",
     "imageDesc": null,
-    "info": "A third distracted-driving offense brings Php 15,000 plus 3-month suspension; a fourth means revocation."
+    "info": "A third distracted-driving offense brings Php 15,000 plus 3-month suspension; a fourth means revocation.",
+    "icon": "phone"
   },
   {
     "n": 30,
@@ -297,7 +326,8 @@
     "C": "Only riders on highways",
     "answer": "B",
     "imageDesc": null,
-    "info": "RA 10054 Motorcycle Helmet Act requires standard helmets for driver AND back rider at all times."
+    "info": "RA 10054 Motorcycle Helmet Act requires standard helmets for driver AND back rider at all times.",
+    "icon": "helmet"
   },
   {
     "n": 31,
@@ -307,7 +337,8 @@
     "C": "Php 3,000",
     "answer": "B",
     "imageDesc": null,
-    "info": "RA 10054 fines helmet violations Php 1,500 (1st), Php 3,000 (2nd), Php 5,000 (3rd), Php 10,000 + confiscation after."
+    "info": "RA 10054 fines helmet violations Php 1,500 (1st), Php 3,000 (2nd), Php 5,000 (3rd), Php 10,000 + confiscation after.",
+    "icon": "helmet"
   },
   {
     "n": 32,
@@ -317,7 +348,8 @@
     "C": "Php 10,000",
     "answer": "B",
     "imageDesc": null,
-    "info": "Helmet fines escalate Php 1,500 → Php 3,000 → Php 5,000; a fourth costs Php 10,000 plus license confiscation."
+    "info": "Helmet fines escalate Php 1,500 → Php 3,000 → Php 5,000; a fourth costs Php 10,000 plus license confiscation.",
+    "icon": "helmet"
   },
   {
     "n": 33,
@@ -327,7 +359,8 @@
     "C": "back-seat passengers only",
     "answer": "B",
     "imageDesc": null,
-    "info": "RA 8750 requires the driver and front-seat passengers of private and public vehicles to buckle up."
+    "info": "RA 8750 requires the driver and front-seat passengers of private and public vehicles to buckle up.",
+    "icon": "seatbelt"
   },
   {
     "n": 34,
@@ -337,7 +370,8 @@
     "C": "Php 3,000",
     "answer": "B",
     "imageDesc": null,
-    "info": "RA 8750 fines go Php 1,000 (1st), Php 2,000 (2nd), Php 5,000 plus suspension (3rd); driver and operator are liable."
+    "info": "RA 8750 fines go Php 1,000 (1st), Php 2,000 (2nd), Php 5,000 plus suspension (3rd); driver and operator are liable.",
+    "icon": "seatbelt"
   },
   {
     "n": 35,
@@ -347,7 +381,8 @@
     "C": "Php 5,000",
     "answer": "B",
     "imageDesc": null,
-    "info": "Seatbelt fines escalate Php 1,000 → Php 2,000 → Php 5,000 with suspension on subsequent offenses."
+    "info": "Seatbelt fines escalate Php 1,000 → Php 2,000 → Php 5,000 with suspension on subsequent offenses.",
+    "icon": "seatbelt"
   },
   {
     "n": 36,
@@ -357,7 +392,8 @@
     "C": "Php 3,000 and warning",
     "answer": "B",
     "imageDesc": null,
-    "info": "RA 10666 third offenses bring Php 10,000 plus 1-month suspension, after Php 3,000 (1st) and Php 5,000 (2nd)."
+    "info": "RA 10666 third offenses bring Php 10,000 plus 1-month suspension, after Php 3,000 (1st) and Php 5,000 (2nd).",
+    "icon": "child"
   },
   {
     "n": 37,
@@ -367,7 +403,8 @@
     "C": "any displacement",
     "answer": "B",
     "imageDesc": null,
-    "info": "Sub-400cc motorcycles are banned from expressways; only 400cc-and-above bikes have the speed and stability required."
+    "info": "Sub-400cc motorcycles are banned from expressways; only 400cc-and-above bikes have the speed and stability required.",
+    "icon": "car"
   },
   {
     "n": 38,
@@ -377,7 +414,8 @@
     "C": "only when sold",
     "answer": "A",
     "imageDesc": null,
-    "info": "PH registration is yearly; driving unregistered risks a Php 10,000 fine, so renew on schedule."
+    "info": "PH registration is yearly; driving unregistered risks a Php 10,000 fine, so renew on schedule.",
+    "icon": "doc"
   },
   {
     "n": 39,
@@ -387,7 +425,8 @@
     "C": "100 meters",
     "answer": "B",
     "imageDesc": null,
-    "info": "RA 4136 requires red lights (in place of daytime red flags) visible at least 50 meters on projecting loads at night."
+    "info": "RA 4136 requires red lights (in place of daytime red flags) visible at least 50 meters on projecting loads at night.",
+    "icon": "warning"
   },
   {
     "n": 40,
@@ -397,6 +436,7 @@
     "C": "without registration",
     "answer": "B",
     "imageDesc": null,
-    "info": "A professional license authorizes operating vehicles for compensation or hire; non-pro is strictly private use."
+    "info": "A professional license authorizes operating vehicles for compensation or hire; non-pro is strictly private use.",
+    "icon": "license"
   }
 ]
