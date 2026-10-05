@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LTO Reviewer – Non-Pro Code A, A1 | Parts 1 & 2 (120 Q)</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+<div class="hwrap">
+<div>
+<h1>DRIVING LICENSE REVIEWER — Non-professional</h1>
+<div class="sub">Code A, A1 | Parts 1 &amp; 2 | 120 Questions</div>
+<div class="controls">
+<input id="search" class="search" placeholder="Search…">
+<select id="mode" class="btn btn-w">
+<option value="practice">Practice</option>
+<option value="exam">Exam</option>
+<option value="study">Study</option>
+</select>
+<select id="view" class="btn btn-w">
+<option value="card">Card view</option>
+<option value="list">List view</option>
+</select>
+<select id="bank" class="btn btn-w">
+<option value="p1">Part 1 (60)</option>
+<option value="p2">Part 2 (60)</option>
+<option value="all">Both (120)</option>
+</select>
+<select id="qlen" class="btn btn-w">
+<option value="all">All Q</option>
+<option value="40">40 Q</option>
+<option value="60">60 Q</option>
+<option value="100">100 Q</option>
+</select>
+<button id="shuffleBtn" class="btn btn-g">Shuffle</button>
+<button id="resetBtn" class="btn btn-g">Reset</button>
+</div>
+</div>
+</div>
+</header>
+
+
+<div class="wrap">
+<div class="stats">
+<div class="pill">Answered<b id="sAnswered">0/60</b></div>
+<div class="pill">Correct<b id="sCorrect">0</b></div>
+<div class="pill">Accuracy<b id="sAcc">—</b></div>
+<div class="pill">Left<b id="sLeft">60</b></div>
+</div>
+<div class="progress"><div id="bar"></div></div>
+
+<div id="resultBox"></div>
+<div id="stage" class="stage"></div>
+<div id="listView" class="hidden"></div>
+
+<div class="actions">
+<button id="jumpBtn" class="btn btn-d">☷ Jump to question — <span id="posLabel"></span></button>
+</div>
+<div class="actions">
+<button id="mistakesBtn" class="btn btn-d">Mistakes only: OFF</button>
+<button id="finishBtn" class="btn btn-green hidden">Finish & Show Result</button>
+</div>
+
+<div id="jumpModal" class="overlay hidden">
+<div class="modal" role="dialog" aria-modal="true" aria-label="Jump to question">
+<div class="mhead"><b>Jump to question</b><button id="closeModal" class="btn btn-d">✕ Close</button></div>
+<div class="msub" id="modalSub"></div>
+<div class="grid" id="grid"></div>
+</div>
+</div>
+
+<div id="actionModal" class="overlay hidden">
+<div class="modal modal-sm" role="alertdialog" aria-modal="true">
+<div class="dlg-title" id="amTitle">Confirm</div>
+<div class="dlg-msg" id="amMsg"></div>
+<div class="dlg-btns">
+<button id="amCancel" class="btn btn-d">Cancel</button>
+<button id="amOk" class="btn btn-green">Confirm</button>
+</div>
+</div>
+</div>
+
+<div id="resultModal" class="overlay hidden">
+<div class="modal modal-sm" role="dialog" aria-modal="true" aria-label="Exam result">
+<div class="dlg-title">Exam Result</div>
+<div class="score-big" id="rmScore">0 / 0</div>
+<div class="score-sub" id="rmSub"></div>
+<div class="dlg-btns">
+<button id="rmReview" class="btn btn-d">Review answers</button>
+<button id="rmRetake" class="btn btn-w" style="border:1px solid var(--border)">Retake</button>
+</div>
+</div>
+</div>
+</div>
+
+<div class="toolbar">
+<button id="prevT" class="btn btn-g">← Prev</button>
+<span id="tScore">0 / 0</span>
+<button id="nextT" class="btn btn-g">Next →</button>
+</div>
+<div id="toast" class="toast hidden"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
