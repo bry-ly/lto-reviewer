@@ -682,3 +682,15 @@ select.btn-w {
   .lp-cards { grid-template-columns: 1fr; }
   .lp-two { grid-template-columns: 1fr; }
 }
+
+/* rule explanations */
+.fb-why {
+  display: block; margin: 0; padding: 9px 12px 11px 48px;
+  font-size: 13px; line-height: 1.55; font-weight: 500;
+  border-top: 1px solid rgba(0, 0, 0, 0.08); opacity: 0.95;
+}
+.why-link {
+  background: none; border: 0; width: 100%; cursor: pointer;
+  color: var(--blue); font-size: 13px; font-weight: 700;
+  padding: 10px 4px 2px; text-align: center;
+}

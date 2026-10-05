@@ -1,7 +1,8 @@
 
 let PART1=[],PART2=[],ALLP1P2=[];
 const BYID={};
-function norm(o,part){return{q:o.n,t:o.q,a:o.A,b:o.B,c:o.C,ans:o.answer,img:o.imageDesc,id:part+'-'+o.n,part:part==='p1'?'P1':'P2'};}
+function norm(o,part){return{q:o.n,t:o.q,a:o.A,b:o.B,c:o.C,ans:o.answer,img:o.imageDesc,info:o.info||null,id:part+'-'+o.n,part:part==='p1'?'P1':'P2'};}
+function whyHtml(q){return q.info?`<span class="fb-why">💡 ${esc(q.info)}</span>`:'';}
 const PICS={"p1-1":"assets/signs/q1.png","p1-8":"assets/signs/q8.png","p1-15":"assets/signs/q15.png","p1-22":"assets/signs/q22.png","p1-24":"assets/signs/q24.png","p1-28":"assets/signs/q28.png","p1-29":"assets/signs/q29.png","p1-38":"assets/signs/q38.png","p1-45":"assets/signs/q45.png","p1-52":"assets/signs/q52.png","p1-59":"assets/signs/q59.png","p2-3":"assets/signs/p2-q3.png","p2-6":"assets/signs/p2-q6.png","p2-9":"assets/signs/p2-q9.png","p2-12":"assets/signs/p2-q12.png","p2-15":"assets/signs/p2-q15.png","p2-18":"assets/signs/p2-q18.png","p2-22":"assets/signs/p2-q22.png","p2-26":"assets/signs/p2-q26.png","p2-29":"assets/signs/p2-q29.png","p2-32":"assets/signs/p2-q32.png","p2-36":"assets/signs/p2-q36.png","p2-40":"assets/signs/p2-q40.png","p2-43":"assets/signs/p2-q43.png","p2-47":"assets/signs/p2-q47.png","p2-50":"assets/signs/p2-q50.png","p2-54":"assets/signs/p2-q54.png","p2-57":"assets/signs/p2-q57.png","p2-60":"assets/signs/p2-q60.png"};
 function picFor(q){return PICS[q.id]||null;}
 function signHtml(q){
@@ -95,12 +96,12 @@ function feedbackHtml(q,m){
   const st=answers[q.id], pick=answers[q.id+'_pick'];
   const ansText=esc(txt(q,q.ans));
   if(m==='practice'&&st) return st==='correct'
-    ? `<div class="feedback ok" role="status"><div class="fb-top"><span class="fb-icon">✓</span><span><span class="fb-title">Correct!</span><div class="fb-sub">Nice — you got ${q.part} Q${q.q} right.</div></span></div><span class="fb-ans">Answer: <b>[${q.ans}] ${ansText}</b></span></div>`
-    : `<div class="feedback no" role="alert"><div class="fb-top"><span class="fb-icon">✕</span><span><span class="fb-title">Wrong — you picked [${pick}]</span><div class="fb-sub">Correct answer is [${q.ans}].</div></span></div><span class="fb-ans">Answer: <b>[${q.ans}] ${ansText}</b></span></div>`;
+    ? `<div class="feedback ok" role="status"><div class="fb-top"><span class="fb-icon">✓</span><span><span class="fb-title">Correct!</span><div class="fb-sub">Nice — you got ${q.part} Q${q.q} right.</div></span></div><span class="fb-ans">Answer: <b>[${q.ans}] ${ansText}</b></span>${whyHtml(q)}</div>`
+    : `<div class="feedback no" role="alert"><div class="fb-top"><span class="fb-icon">✕</span><span><span class="fb-title">Wrong — you picked [${pick}]</span><div class="fb-sub">Correct answer is [${q.ans}].</div></span></div><span class="fb-ans">Answer: <b>[${q.ans}] ${ansText}</b></span>${whyHtml(q)}</div>`;
   if(m==='exam'&&finished&&st) return st==='correct'
-    ? `<div class="feedback ok" role="status"><div class="fb-top"><span class="fb-icon">✓</span><span><span class="fb-title">Correct</span><div class="fb-sub">You picked [${pick}] on ${q.part} Q${q.q}.</div></span></div><span class="fb-ans">Answer: <b>[${q.ans}] ${ansText}</b></span></div>`
-    : `<div class="feedback no" role="alert"><div class="fb-top"><span class="fb-icon">✕</span><span><span class="fb-title">Wrong — you picked [${pick||'—'}]</span><div class="fb-sub">Correct answer is [${q.ans}].</div></span></div><span class="fb-ans">Answer: <b>[${q.ans}] ${ansText}</b></span></div>`;
-  if(m==='study') return `<div class="feedback info" role="note"><div class="fb-top"><span class="fb-icon">🔑</span><span><span class="fb-title">Answer: [${q.ans}]</span><div class="fb-sub">${ansText}</div></span></div></div>`;
+    ? `<div class="feedback ok" role="status"><div class="fb-top"><span class="fb-icon">✓</span><span><span class="fb-title">Correct</span><div class="fb-sub">You picked [${pick}] on ${q.part} Q${q.q}.</div></span></div><span class="fb-ans">Answer: <b>[${q.ans}] ${ansText}</b></span>${whyHtml(q)}</div>`
+    : `<div class="feedback no" role="alert"><div class="fb-top"><span class="fb-icon">✕</span><span><span class="fb-title">Wrong — you picked [${pick||'—'}]</span><div class="fb-sub">Correct answer is [${q.ans}].</div></span></div><span class="fb-ans">Answer: <b>[${q.ans}] ${ansText}</b></span>${whyHtml(q)}</div>`;
+  if(m==='study') return `<div class="feedback info" role="note"><div class="fb-top"><span class="fb-icon">🔑</span><span><span class="fb-title">Answer: [${q.ans}]</span><div class="fb-sub">${ansText}</div></span></div>${whyHtml(q)}</div>`;
   return '';
 }
 function statusPill(q,m){
@@ -110,6 +111,19 @@ function statusPill(q,m){
   if(!st) return `<span class="status idle">Unanswered</span>`;
   return st==='correct'?`<span class="status ok">✓ Correct</span>`:`<span class="status no">✕ Wrong</span>`;
 }
+function whyLink(q,m){
+  const st=answers[q.id];
+  const show=(m==='practice'&&st)||m==='study'||(m==='exam'&&finished&&st);
+  if(!show||!q.info)return'';
+  return `<button class="why-link">💡 Why this answer? Tap to view the rule</button>`;
+}
+function openInfoModal(q){
+  document.getElementById('imTitle').textContent=`${q.part} Q${q.q} — Answer [${q.ans}]`;
+  document.getElementById('imAns').textContent=txt(q,q.ans);
+  document.getElementById('imInfo').textContent=q.info||'';
+  document.getElementById('infoModal').classList.remove('hidden');
+}
+function closeInfoModal(){document.getElementById('infoModal').classList.add('hidden');}
 
 function renderCard(f,m){
   const q=cur();
@@ -122,8 +136,10 @@ function renderCard(f,m){
     <div class="choices">
       ${['A','B','C'].map(L=>`<button class="${choiceClass(q,L,m)}" data-id="${q.id}" data-l="${L}"><span class="letter">${L}</span><span>${esc(txt(q,L))}</span></button>`).join('')}
     </div>
+    ${whyLink(q,m)}
   </div>`;
   stage.querySelectorAll('.choice').forEach(b=>b.onclick=()=>pick(b.dataset.id,b.dataset.l));
+  const wb=stage.querySelector('.why-link');if(wb)wb.onclick=()=>openInfoModal(q);
 }
 
 function renderList(f,m){
@@ -234,6 +250,8 @@ document.getElementById('resultModal').addEventListener('click',e=>{if(e.target.
 document.getElementById('jumpBtn').onclick=openJump;
 document.getElementById('closeModal').onclick=closeJump;
 document.getElementById('jumpModal').addEventListener('click',e=>{if(e.target.id==='jumpModal')closeJump();});
+document.getElementById('imClose').onclick=closeInfoModal;
+document.getElementById('infoModal').addEventListener('click',e=>{if(e.target.id==='infoModal')closeInfoModal();});
 document.getElementById('shuffleBtn').onclick=async()=>{
   const p=pool(), n=wantN();
   if(n<p.length){
@@ -273,9 +291,10 @@ document.getElementById('finishBtn').onclick=async()=>{
   finished=true;render();openResultModal();window.scrollTo({top:0,behavior:'smooth'});
 };
 document.addEventListener('keydown',e=>{
-  if(e.key==='Escape'){closeJump();closeDialog(false);closeResultModal();return;}
+  if(e.key==='Escape'){closeJump();closeDialog(false);closeResultModal();closeInfoModal();return;}
   if(/INPUT|SELECT|TEXTAREA/.test(document.activeElement.tagName))return;
   if(!document.getElementById('jumpModal').classList.contains('hidden'))return;
+  if(!document.getElementById('infoModal').classList.contains('hidden'))return;
   if(!document.getElementById('actionModal').classList.contains('hidden'))return;
   if(!document.getElementById('resultModal').classList.contains('hidden'))return;
   const f=filtered();if(!f.length)return;const q=cur();if(!q)return;
