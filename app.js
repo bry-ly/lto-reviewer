@@ -363,7 +363,7 @@ document.addEventListener('keydown',e=>{
 async function boot(){
   stage.innerHTML='<div class="card">Loading questions…</div>';
   try{
-    const [r1,r2,r3,r4]=await Promise.all([fetch('data/part1.json'),fetch('data/part2.json'),fetch('data/laws.json'),fetch('data/signs.json')]);
+    const [r1,r2,r3,r4]=await Promise.all([fetch('data/part1.json?v=6'),fetch('data/part2.json?v=6'),fetch('data/laws.json?v=6'),fetch('data/signs.json?v=6')]);
     if(!r1.ok||!r2.ok||!r3.ok||!r4.ok)throw new Error('http');
     const [d1,d2,d3,d4]=await Promise.all([r1.json(),r2.json(),r3.json(),r4.json()]);
     PART1=d1.map(o=>norm(o,'p1'));PART2=d2.map(o=>norm(o,'p2'));PART3=d3.map(o=>norm(o,'lw'));PART4=d4.map(o=>norm(o,'sg'));
