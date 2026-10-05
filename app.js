@@ -1,10 +1,46 @@
 
-let PART1=[],PART2=[],PART3=[],ALLP1P2=[];
+let PART1=[],PART2=[],PART3=[],PART4=[],ALLP1P2=[];
+const SG_OLD=['p1-1','p1-8','p1-15','p1-22','p1-24','p1-28','p1-29','p1-38','p1-45','p1-52','p1-59','p2-3','p2-6','p2-9','p2-12','p2-15','p2-18','p2-22','p2-26','p2-29','p2-32','p2-36','p2-40','p2-43','p2-47','p2-50','p2-54','p2-57','p2-60'];
 const BYID={};
-function norm(o,part){const tag=part==='p1'?'P1':part==='p2'?'P2':'LW';return{q:o.n,t:o.q,a:o.A,b:o.B,c:o.C,ans:o.answer,img:o.imageDesc,icon:o.icon||null,info:o.info||null,id:part+'-'+o.n,part:tag};}
+function norm(o,part){const tag=part==='p1'?'P1':part==='p2'?'P2':part==='lw'?'LW':'SG';return{q:o.n,t:o.q,a:o.A,b:o.B,c:o.C,ans:o.answer,img:o.imageDesc,icon:o.icon||null,svg:o.svg||null,info:o.info||null,id:part+'-'+o.n,part:tag};}
 function whyHtml(q){return q.info?`<span class="fb-why">💡 ${esc(q.info)}</span>`:'';}
 const PICS={"p1-1":"assets/signs/q1.png","p1-8":"assets/signs/q8.png","p1-15":"assets/signs/q15.png","p1-22":"assets/signs/q22.png","p1-24":"assets/signs/q24.png","p1-28":"assets/signs/q28.png","p1-29":"assets/signs/q29.png","p1-38":"assets/signs/q38.png","p1-45":"assets/signs/q45.png","p1-52":"assets/signs/q52.png","p1-59":"assets/signs/q59.png","p2-3":"assets/signs/p2-q3.png","p2-6":"assets/signs/p2-q6.png","p2-9":"assets/signs/p2-q9.png","p2-12":"assets/signs/p2-q12.png","p2-15":"assets/signs/p2-q15.png","p2-18":"assets/signs/p2-q18.png","p2-22":"assets/signs/p2-q22.png","p2-26":"assets/signs/p2-q26.png","p2-29":"assets/signs/p2-q29.png","p2-32":"assets/signs/p2-q32.png","p2-36":"assets/signs/p2-q36.png","p2-40":"assets/signs/p2-q40.png","p2-43":"assets/signs/p2-q43.png","p2-47":"assets/signs/p2-q47.png","p2-50":"assets/signs/p2-q50.png","p2-54":"assets/signs/p2-q54.png","p2-57":"assets/signs/p2-q57.png","p2-60":"assets/signs/p2-q60.png"};
 function picFor(q){return PICS[q.id]||null;}
+const SVGS={
+s01:'<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="#fff" stroke="#d6261c" stroke-width="10"/><path d="M68 50H32M32 50l11-11M32 50l11 11" stroke="#111" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 78L78 22" stroke="#d6261c" stroke-width="9"/></svg>',
+s02:'<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="#fff" stroke="#d6261c" stroke-width="10"/><path d="M32 50h36M68 50l-11-11M68 50l-11 11" stroke="#111" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 78L78 22" stroke="#d6261c" stroke-width="9"/></svg>',
+s03:'<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="#fff" stroke="#d6261c" stroke-width="10"/><path d="M32 57h13l12-9v24l-12-9H32z" fill="#111"/><path d="M62 49a9 9 0 010 12M67 44a16 16 0 010 22" stroke="#111" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M22 78L78 22" stroke="#d6261c" stroke-width="9"/></svg>',
+s04:'<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="#fff" stroke="#d6261c" stroke-width="10"/><g stroke="#111" stroke-width="3.5" fill="none" stroke-linecap="round"><circle cx="35" cy="66" r="8"/><circle cx="65" cy="66" r="8"/><path d="M35 66l8-19h10l12 19M43 47h-9l-4-7"/></g><path d="M22 78L78 22" stroke="#d6261c" stroke-width="9"/></svg>',
+s05:'<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="#fff" stroke="#d6261c" stroke-width="10"/><text x="50" y="65" text-anchor="middle" font-size="34" font-weight="bold" fill="#111" font-family="Arial,sans-serif">30</text></svg>',
+s06:'<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="#fff" stroke="#d6261c" stroke-width="10"/><g stroke="#111" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M27 60V40h25v20M52 60V46h9l7 7v7"/><circle cx="37" cy="66" r="5"/><circle cx="60" cy="66" r="5"/></g><path d="M22 78L78 22" stroke="#d6261c" stroke-width="9"/></svg>',
+s07:'<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="#fff" stroke="#d6261c" stroke-width="10"/><text x="50" y="66" text-anchor="middle" font-size="42" font-weight="bold" fill="#111" font-family="Arial,sans-serif">P</text><path d="M22 78L78 22" stroke="#d6261c" stroke-width="9"/></svg>',
+s08:'<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="44" fill="#0b46c4"/><path d="M62 30L42 66M42 66l-2-12M42 66l12-2" stroke="#fff" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+s09:'<svg viewBox="0 0 100 100"><rect x="8" y="8" width="84" height="84" rx="10" fill="#0b46c4"/><circle cx="50" cy="30" r="6" fill="#fff"/><path d="M50 38v16l-8 18M50 54l9 6 3 12M50 44l-9 7M50 44l9 8M30 78h40M30 84h40" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round"/></svg>',
+s10:'<svg viewBox="0 0 100 100"><rect x="8" y="8" width="84" height="84" rx="10" fill="#0b46c4"/><g stroke="#fff" stroke-width="4" fill="none"><rect x="32" y="30" width="36" height="30" rx="4"/><path d="M32 42h36"/></g><circle cx="41" cy="66" r="3.5" fill="#fff"/><circle cx="59" cy="66" r="3.5" fill="#fff"/></svg>',
+s11:'<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="#fff" stroke="#d6261c" stroke-width="10"/><circle cx="50" cy="34" r="6" fill="#111"/><path d="M50 42v16l-8 18M50 58l9 6 3 12M50 48l-9 7M50 48l9 8" stroke="#111" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M22 78L78 22" stroke="#d6261c" stroke-width="9"/></svg>',
+s12:'<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="#fff" stroke="#d6261c" stroke-width="10"/><g stroke="#111" stroke-width="3.5" fill="none" stroke-linecap="round"><circle cx="32" cy="68" r="7"/><circle cx="62" cy="68" r="7"/><path d="M32 68l11-13M50 55h-6l-3-9M52 62h20V50H54"/></g><path d="M22 78L78 22" stroke="#d6261c" stroke-width="9"/></svg>',
+s13:'<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="44" fill="#0b46c4"/><g stroke="#fff" stroke-width="3.5" fill="none" stroke-linecap="round"><circle cx="35" cy="66" r="8"/><circle cx="65" cy="66" r="8"/><path d="M35 66l8-19h10l12 19M43 47h-9l-4-7"/></g></svg>',
+s14:'<svg viewBox="0 0 100 100"><rect x="8" y="8" width="84" height="84" rx="10" fill="#0b46c4"/><text x="50" y="68" text-anchor="middle" font-size="46" font-weight="bold" fill="#fff" font-family="Arial,sans-serif">H</text></svg>',
+s15:'<svg viewBox="0 0 100 92"><path d="M50 8 92 84H8Z" fill="#fff" stroke="#d6261c" stroke-width="9" stroke-linejoin="round"/><path d="M34 70L46 42M66 70L54 42M38 70Q50 60 62 70" stroke="#111" stroke-width="5" fill="none" stroke-linecap="round"/></svg>',
+s16:'<svg viewBox="0 0 100 92"><path d="M50 8 92 84H8Z" fill="#fff" stroke="#d6261c" stroke-width="9" stroke-linejoin="round"/><g stroke="#111" stroke-width="4" fill="none"><rect x="38" y="50" width="24" height="18" rx="2"/><path d="M38 58h24M42 50l8-8 8 8"/></g><circle cx="44" cy="72" r="3" fill="#111"/><circle cx="56" cy="72" r="3" fill="#111"/></svg>'
+};
+Object.assign(SVGS,{
+s17:'<svg viewBox="0 0 100 92"><path d="M50 8 92 84H8Z" fill="#fff" stroke="#d6261c" stroke-width="9" stroke-linejoin="round"/><path d="M41 70V36M41 36l-7 9M41 36l7 9M59 36v34M59 70l-7-9M59 70l7-9" stroke="#111" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+s18:'<svg viewBox="0 0 100 92"><path d="M50 8 92 84H8Z" fill="#fff" stroke="#d6261c" stroke-width="9" stroke-linejoin="round"/><path d="M38 72L46 34M62 72L54 34" stroke="#111" stroke-width="5" stroke-linecap="round"/></svg>',
+s19:'<svg viewBox="0 0 100 92"><path d="M50 8 92 84H8Z" fill="#fff" stroke="#d6261c" stroke-width="9" stroke-linejoin="round"/><path d="M30 70L58 40" stroke="#111" stroke-width="5" stroke-linecap="round"/><circle cx="64" cy="48" r="4" fill="#111"/><circle cx="72" cy="58" r="5" fill="#111"/><circle cx="56" cy="60" r="3" fill="#111"/></svg>',
+s20:'<svg viewBox="0 0 100 92"><path d="M50 8 92 84H8Z" fill="#fff" stroke="#d6261c" stroke-width="9" stroke-linejoin="round"/><rect x="34" y="54" width="24" height="11" fill="#111"/><path d="M38 65v8M54 65v8" stroke="#111" stroke-width="3.5"/><rect x="58" y="48" width="9" height="11" fill="#111"/><path d="M60 48l-3-5M65 48l3-5" stroke="#111" stroke-width="2.5"/></svg>',
+s21:'<svg viewBox="0 0 100 92"><path d="M50 8 92 84H8Z" fill="#fff" stroke="#d6261c" stroke-width="9" stroke-linejoin="round"/><path d="M28 68Q50 40 72 68M24 72h52" stroke="#111" stroke-width="5" fill="none" stroke-linecap="round"/></svg>',
+s22:'<svg viewBox="0 0 100 92"><path d="M50 8 92 84H8Z" fill="#fff" stroke="#d6261c" stroke-width="9" stroke-linejoin="round"/><path d="M30 40L70 64M70 64l-12-2M70 64l-4-11" stroke="#111" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+s23:'<svg viewBox="0 0 100 70"><rect x="6" y="8" width="88" height="54" rx="6" fill="#f7c948" stroke="#111" stroke-width="3"/><path d="M32 18l16 17-16 17M54 18l16 17-16 17" stroke="#111" stroke-width="9" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+s24:'<svg viewBox="0 0 100 92"><path d="M50 8 92 84H8Z" fill="#fff" stroke="#d6261c" stroke-width="9" stroke-linejoin="round"/><path d="M56 72V34M56 34l-7 9M56 34l7 9M32 72Q32 56 50 52" stroke="#111" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+s25:'<svg viewBox="0 0 100 92"><path d="M50 8 92 84H8Z" fill="#fff" stroke="#d6261c" stroke-width="9" stroke-linejoin="round"/><path d="M64 50a13 13 0 10-3 12" stroke="#111" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M52 66l-3-9 9 1" stroke="#111" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+s26:'<svg viewBox="0 0 100 92"><path d="M50 8 92 84H8Z" fill="#fff" stroke="#d6261c" stroke-width="9" stroke-linejoin="round"/><circle cx="50" cy="34" r="6" fill="#111"/><path d="M50 42v16l-8 18M50 58l9 6 3 12M50 48l-9 7M50 48l9 8" stroke="#111" stroke-width="4" fill="none" stroke-linecap="round"/></svg>',
+s27:'<svg viewBox="0 0 100 92"><path d="M50 8 92 84H8Z" fill="#fff" stroke="#d6261c" stroke-width="9" stroke-linejoin="round"/><path d="M50 72V54M50 54L40 40M40 40l-2 10M40 40l10-2M50 54l10-14M60 40l2 10M60 40l-10-2" stroke="#111" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+s28:'<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="#fff" stroke="#d6261c" stroke-width="10"/><text x="50" y="60" text-anchor="middle" font-size="21" font-weight="bold" fill="#111" font-family="Arial,sans-serif">3.5m</text></svg>',
+s29:'<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="#fff" stroke="#d6261c" stroke-width="10"/><text x="50" y="63" text-anchor="middle" font-size="30" font-weight="bold" fill="#111" font-family="Arial,sans-serif">10t</text></svg>',
+s30:'<svg viewBox="0 0 100 92"><path d="M50 8 92 84H8Z" fill="#fff" stroke="#d6261c" stroke-width="9" stroke-linejoin="round"/><path d="M64 70V54q0-14-14-14t-14 14v14" stroke="#111" stroke-width="8" fill="none" stroke-linecap="round"/><path d="M36 68l-7-6M36 68l7-6" stroke="#111" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+s31:'<svg viewBox="0 0 120 70"><rect x="4" y="4" width="112" height="62" rx="8" fill="#d7e800" stroke="#111" stroke-width="3"/><text x="60" y="31" text-anchor="middle" font-size="16" font-weight="bold" fill="#111" font-family="Arial,sans-serif">SCHOOL</text><text x="60" y="53" text-anchor="middle" font-size="14" font-weight="bold" fill="#111" font-family="Arial,sans-serif">SLOW DOWN</text></svg>'
+});
 const ICONS={
 book:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19a2 2 0 0 0 2 2h13"/><path d="M9 7h7"/></svg>',
 speed:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 16a8 8 0 0 1 16 0"/><path d="M12 16l4.5-5.5"/><circle cx="12" cy="16" r="1.4" fill="currentColor"/></svg>',
@@ -24,6 +60,7 @@ doc:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.
 function signHtml(q){
   const pic=picFor(q);
   if(pic) return `<div class="sign">${`<img src="${pic}" alt="Traffic sign ${q.part} Q${q.q}" loading="lazy">`}${q.img?`<span><b>Sign:</b> ${esc(q.img)}</span>`:''}</div>`;
+  if(q.svg&&SVGS[q.svg]) return `<div class="sign"><span class="sgpic">${SVGS[q.svg]}</span></div>`;
   if(q.icon&&ICONS[q.icon]) return `<div class="sign"><span class="lwic">${ICONS[q.icon]}</span></div>`;
   if(q.img) return `<div class="sign"><span><b>Sign:</b> ${esc(q.img)}</span></div>`;
   return '';
@@ -58,7 +95,7 @@ function mode(){return modeEl.value;}
 function view(){return viewEl.value;}
 function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
 function txt(q,L){return L==='A'?q.a:L==='B'?q.b:q.c;}
-function pool(){return bank==='p1'?PART1:bank==='p2'?PART2:bank==='lw'?PART3:ALLP1P2;}
+function pool(){return bank==='p1'?PART1:bank==='p2'?PART2:bank==='lw'?PART3:bank==='sg'?[...SG_OLD.map(id=>BYID[id]).filter(Boolean),...PART4]:ALLP1P2;}
 function wantN(){const p=pool();if(qlen==='all')return p.length;return Math.min(parseInt(qlen,10),p.length);}
 function shuffled(a){a=[...a];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
 function buildSession(){const p=pool(),n=wantN();sess=(n>=p.length?p.map(x=>x.id):shuffled(p).slice(0,n).map(x=>x.id));idx=0;persistSess();}
@@ -326,18 +363,18 @@ document.addEventListener('keydown',e=>{
 async function boot(){
   stage.innerHTML='<div class="card">Loading questions…</div>';
   try{
-    const [r1,r2,r3]=await Promise.all([fetch('data/part1.json'),fetch('data/part2.json'),fetch('data/laws.json')]);
-    if(!r1.ok||!r2.ok||!r3.ok)throw new Error('http');
-    const [d1,d2,d3]=await Promise.all([r1.json(),r2.json(),r3.json()]);
-    PART1=d1.map(o=>norm(o,'p1'));PART2=d2.map(o=>norm(o,'p2'));PART3=d3.map(o=>norm(o,'lw'));
-    ALLP1P2=[...PART1,...PART2,...PART3];ALLP1P2.forEach(x=>BYID[x.id]=x);
+    const [r1,r2,r3,r4]=await Promise.all([fetch('data/part1.json'),fetch('data/part2.json'),fetch('data/laws.json'),fetch('data/signs.json')]);
+    if(!r1.ok||!r2.ok||!r3.ok||!r4.ok)throw new Error('http');
+    const [d1,d2,d3,d4]=await Promise.all([r1.json(),r2.json(),r3.json(),r4.json()]);
+    PART1=d1.map(o=>norm(o,'p1'));PART2=d2.map(o=>norm(o,'p2'));PART3=d3.map(o=>norm(o,'lw'));PART4=d4.map(o=>norm(o,'sg'));
+    ALLP1P2=[...PART1,...PART2,...PART3,...PART4];ALLP1P2.forEach(x=>BYID[x.id]=x);
     migrateV1();
   }catch(e){stage.innerHTML='<div class="card">Could not load question files in <b>data/</b>. Open this app over http (e.g. Vercel, or <b>python3 -m http.server</b>) instead of file://.</div>';return;}
   // deep links like reviewer.html?mode=exam&len=60&bank=all
   let freshSession=false;
   try{
     const sp=new URLSearchParams(location.search);
-    const b=sp.get('bank');if(['p1','p2','lw','all'].includes(b))bank=b;
+    const b=sp.get('bank');if(['p1','p2','lw','sg','all'].includes(b))bank=b;
     const l=sp.get('len');if(['all','40','60','100'].includes(l))qlen=l;
     const md=sp.get('mode');if(md&&['practice','exam','study'].includes(md))modeEl.value=md;
     const vw=sp.get('view');if(vw&&['card','list'].includes(vw))viewEl.value=vw;
