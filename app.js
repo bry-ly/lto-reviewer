@@ -296,10 +296,20 @@ async function boot(){
     ALLP1P2=[...PART1,...PART2];ALLP1P2.forEach(x=>BYID[x.id]=x);
     migrateV1();
   }catch(e){stage.innerHTML='<div class="card">Could not load <b>data/part1.json</b> / <b>data/part2.json</b>. Open this app over http (e.g. Vercel, or <b>python3 -m http.server</b>) instead of file://.</div>';return;}
+  // deep links like reviewer.html?mode=exam&len=60&bank=all
+  let freshSession=false;
+  try{
+    const sp=new URLSearchParams(location.search);
+    const b=sp.get('bank');if(['p1','p2','all'].includes(b))bank=b;
+    const l=sp.get('len');if(['all','40','60','100'].includes(l))qlen=l;
+    const md=sp.get('mode');if(md&&['practice','exam','study'].includes(md))modeEl.value=md;
+    const vw=sp.get('view');if(vw&&['card','list'].includes(vw))viewEl.value=vw;
+    if(sp.has('bank')||sp.has('len'))freshSession=true;
+  }catch(e){}
   bankEl.value=bank;lenEl.value=qlen;
   try{
     const s=JSON.parse(localStorage.getItem('lto-sess-v2')||'null');
-    if(s&&s.bank===bank&&s.qlen===qlen&&Array.isArray(s.ids)&&s.ids.length&&s.ids.every(id=>BYID[id])){sess=s.ids;}
+    if(!freshSession&&s&&s.bank===bank&&s.qlen===qlen&&Array.isArray(s.ids)&&s.ids.length&&s.ids.every(id=>BYID[id])){sess=s.ids;}
     else buildSession();
   }catch(e){buildSession();}
   if(idx>=sess.length)idx=0;
