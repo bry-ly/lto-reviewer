@@ -15,7 +15,7 @@
 <a class="btn btn-w lp-cta" href="reviewer.html">Start Review →</a>
 </nav>
 
-<header class="lp-hero">
+<header class="lp-hero"><div class="lp-hero-in">
 <img class="lp-logo" src="assets/land-transportation-office-logo.png" alt="Land Transportation Office logo">
 <p class="lp-kicker">Non-professional · Code A, A1 · Parts 1 &amp; 2</p>
 <h1 class="lp-title">Pass your LTO driving exam with confidence</h1>
@@ -29,6 +29,7 @@
 <div><b>29</b><span>road signs</span></div>
 <div><b>3</b><span>study modes</span></div>
 <div><b>80%</b><span>to pass</span></div>
+</div>
 </div>
 </header>
 
@@ -90,5 +91,13 @@
 <p>Unofficial study aid based on publicly available reviewer videos. Not affiliated with the Land Transportation Office.</p>
 <p><a href="https://github.com/bry-ly/lto-reviewer">GitHub</a> · Code A, A1 · Non-professional</p>
 </footer>
+<script>
+(function () {
+  var hero = document.querySelector('.lp-hero');
+  function onScroll() { hero.classList.toggle('stuck', window.scrollY > 240); }
+  addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+</script>
 </body>
 </html>

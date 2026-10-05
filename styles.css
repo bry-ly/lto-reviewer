@@ -635,7 +635,22 @@ select.btn-w {
 .lp-brand { display: inline-flex; align-items: center; gap: 9px; color: #fff; text-decoration: none; font-weight: 800; }
 .lp-brand img { width: 32px; height: 32px; border-radius: 50%; background: #fff; object-fit: cover; }
 .lp-cta { text-decoration: none; }
-.lp-hero { max-width: 760px; margin: 0 auto; padding: 44px 18px 10px; background: transparent; color: #0f172a; }
+.lp-hero {
+  position: sticky; top: 0; z-index: 30;
+  background: radial-gradient(1000px 400px at 50% -100px, #c7d7ff, var(--bg)), var(--bg);
+  color: #0f172a;
+  border-bottom: 1px solid transparent;
+}
+.lp-hero-in { max-width: 760px; margin: 0 auto; padding: 44px 18px 10px; }
+.lp-hero.stuck { box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18); border-color: var(--border); }
+.lp-hero.stuck .lp-hero-in { padding-top: 10px; padding-bottom: 10px; }
+.lp-hero .lp-logo, .lp-hero .lp-title, .lp-hero .lp-big { transition: 0.2s ease; }
+.lp-hero.stuck .lp-logo { width: 36px; height: 36px; }
+.lp-hero.stuck .lp-kicker, .lp-hero.stuck .lp-sub, .lp-hero.stuck .lp-stats { display: none; }
+.lp-hero.stuck .lp-title { font-size: 19px; }
+.lp-hero.stuck .lp-actions { margin-top: 10px; }
+.lp-hero.stuck .lp-actions a:last-child { display: none; }
+.lp-hero.stuck .lp-big { padding: 9px 16px !important; font-size: 13px !important; }
 .lp-logo { width: 110px; height: 110px; border-radius: 50%; background: #fff; object-fit: cover; box-shadow: 0 10px 30px rgba(11, 70, 196, 0.3); }
 .lp-kicker { margin: 16px 0 6px; font-size: 12.5px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--blue); }
 .lp-title { margin: 0; font-size: clamp(28px, 5vw, 44px); line-height: 1.15; letter-spacing: -0.02em; color: #0f172a; }
