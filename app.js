@@ -1,7 +1,7 @@
 
-let PART1=[],PART2=[],ALLP1P2=[];
+let PART1=[],PART2=[],PART3=[],ALLP1P2=[];
 const BYID={};
-function norm(o,part){return{q:o.n,t:o.q,a:o.A,b:o.B,c:o.C,ans:o.answer,img:o.imageDesc,info:o.info||null,id:part+'-'+o.n,part:part==='p1'?'P1':'P2'};}
+function norm(o,part){const tag=part==='p1'?'P1':part==='p2'?'P2':'LW';return{q:o.n,t:o.q,a:o.A,b:o.B,c:o.C,ans:o.answer,img:o.imageDesc,info:o.info||null,id:part+'-'+o.n,part:tag};}
 function whyHtml(q){return q.info?`<span class="fb-why">💡 ${esc(q.info)}</span>`:'';}
 const PICS={"p1-1":"assets/signs/q1.png","p1-8":"assets/signs/q8.png","p1-15":"assets/signs/q15.png","p1-22":"assets/signs/q22.png","p1-24":"assets/signs/q24.png","p1-28":"assets/signs/q28.png","p1-29":"assets/signs/q29.png","p1-38":"assets/signs/q38.png","p1-45":"assets/signs/q45.png","p1-52":"assets/signs/q52.png","p1-59":"assets/signs/q59.png","p2-3":"assets/signs/p2-q3.png","p2-6":"assets/signs/p2-q6.png","p2-9":"assets/signs/p2-q9.png","p2-12":"assets/signs/p2-q12.png","p2-15":"assets/signs/p2-q15.png","p2-18":"assets/signs/p2-q18.png","p2-22":"assets/signs/p2-q22.png","p2-26":"assets/signs/p2-q26.png","p2-29":"assets/signs/p2-q29.png","p2-32":"assets/signs/p2-q32.png","p2-36":"assets/signs/p2-q36.png","p2-40":"assets/signs/p2-q40.png","p2-43":"assets/signs/p2-q43.png","p2-47":"assets/signs/p2-q47.png","p2-50":"assets/signs/p2-q50.png","p2-54":"assets/signs/p2-q54.png","p2-57":"assets/signs/p2-q57.png","p2-60":"assets/signs/p2-q60.png"};
 function picFor(q){return PICS[q.id]||null;}
@@ -40,7 +40,7 @@ function mode(){return modeEl.value;}
 function view(){return viewEl.value;}
 function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
 function txt(q,L){return L==='A'?q.a:L==='B'?q.b:q.c;}
-function pool(){return bank==='p1'?PART1:bank==='p2'?PART2:ALLP1P2;}
+function pool(){return bank==='p1'?PART1:bank==='p2'?PART2:bank==='lw'?PART3:ALLP1P2;}
 function wantN(){const p=pool();if(qlen==='all')return p.length;return Math.min(parseInt(qlen,10),p.length);}
 function shuffled(a){a=[...a];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
 function buildSession(){const p=pool(),n=wantN();sess=(n>=p.length?p.map(x=>x.id):shuffled(p).slice(0,n).map(x=>x.id));idx=0;persistSess();}
@@ -308,18 +308,18 @@ document.addEventListener('keydown',e=>{
 async function boot(){
   stage.innerHTML='<div class="card">Loading questions…</div>';
   try{
-    const [r1,r2]=await Promise.all([fetch('data/part1.json'),fetch('data/part2.json')]);
-    if(!r1.ok||!r2.ok)throw new Error('http');
-    const [d1,d2]=await Promise.all([r1.json(),r2.json()]);
-    PART1=d1.map(o=>norm(o,'p1'));PART2=d2.map(o=>norm(o,'p2'));
-    ALLP1P2=[...PART1,...PART2];ALLP1P2.forEach(x=>BYID[x.id]=x);
+    const [r1,r2,r3]=await Promise.all([fetch('data/part1.json'),fetch('data/part2.json'),fetch('data/laws.json')]);
+    if(!r1.ok||!r2.ok||!r3.ok)throw new Error('http');
+    const [d1,d2,d3]=await Promise.all([r1.json(),r2.json(),r3.json()]);
+    PART1=d1.map(o=>norm(o,'p1'));PART2=d2.map(o=>norm(o,'p2'));PART3=d3.map(o=>norm(o,'lw'));
+    ALLP1P2=[...PART1,...PART2,...PART3];ALLP1P2.forEach(x=>BYID[x.id]=x);
     migrateV1();
-  }catch(e){stage.innerHTML='<div class="card">Could not load <b>data/part1.json</b> / <b>data/part2.json</b>. Open this app over http (e.g. Vercel, or <b>python3 -m http.server</b>) instead of file://.</div>';return;}
+  }catch(e){stage.innerHTML='<div class="card">Could not load question files in <b>data/</b>. Open this app over http (e.g. Vercel, or <b>python3 -m http.server</b>) instead of file://.</div>';return;}
   // deep links like reviewer.html?mode=exam&len=60&bank=all
   let freshSession=false;
   try{
     const sp=new URLSearchParams(location.search);
-    const b=sp.get('bank');if(['p1','p2','all'].includes(b))bank=b;
+    const b=sp.get('bank');if(['p1','p2','lw','all'].includes(b))bank=b;
     const l=sp.get('len');if(['all','40','60','100'].includes(l))qlen=l;
     const md=sp.get('mode');if(md&&['practice','exam','study'].includes(md))modeEl.value=md;
     const vw=sp.get('view');if(vw&&['card','list'].includes(vw))viewEl.value=vw;

@@ -1,0 +1,402 @@
+[
+  {
+    "n": 1,
+    "q": "RA 4136 is also known as the:",
+    "A": "Land Transportation and Traffic Code",
+    "B": "Anti-Distracted Driving Act",
+    "C": "Motorcycle Helmet Act",
+    "answer": "A",
+    "imageDesc": null,
+    "info": "RA 4136 compiles PH land transportation and traffic laws; it is the basis of most LTO exam questions."
+  },
+  {
+    "n": 2,
+    "q": "Maximum speed on city and municipal streets with light traffic under RA 4136:",
+    "A": "30 kph",
+    "B": "40 kph",
+    "C": "20 kph",
+    "answer": "A",
+    "imageDesc": null,
+    "info": "RA 4136 Sec 35 caps city/municipal streets at 30 kph; open country roads allow up to 80 kph for light vehicles."
+  },
+  {
+    "n": 3,
+    "q": "Maximum speed for light vehicles on open country roads under RA 4136:",
+    "A": "100 kph",
+    "B": "60 kph",
+    "C": "80 kph",
+    "answer": "C",
+    "imageDesc": null,
+    "info": "RA 4136 Sec 35 sets 80 kph for light vehicles on open country roads without blind corners or dense habitation."
+  },
+  {
+    "n": 4,
+    "q": "Maximum speed on crowded streets under RA 4136:",
+    "A": "20 kph",
+    "B": "30 kph",
+    "C": "40 kph",
+    "answer": "A",
+    "imageDesc": null,
+    "info": "Crowded streets limit speed to 20 kph under RA 4136 because pedestrians and hazards are dense."
+  },
+  {
+    "n": 5,
+    "q": "Driving or parking on a sidewalk, path, or alley not intended for vehicles is:",
+    "A": "prohibited under RA 4136",
+    "B": "allowed when traffic is heavy",
+    "C": "allowed for motorcycles",
+    "answer": "A",
+    "imageDesc": null,
+    "info": "RA 4136 bans driving or parking on sidewalks and paths not intended for vehicular traffic; they are for pedestrians."
+  },
+  {
+    "n": 6,
+    "q": "Hitching a person, bicycle, or motorcycle to a moving motor vehicle is:",
+    "A": "allowed outside cities",
+    "B": "allowed at low speed",
+    "C": "prohibited under RA 4136",
+    "answer": "C",
+    "imageDesc": null,
+    "info": "RA 4136 prohibits hitching persons or vehicles to a motor vehicle because a fall or swing causes crashes."
+  },
+  {
+    "n": 7,
+    "q": "If your load extends more than 1 meter beyond the vehicle bed, you must display:",
+    "A": "a reflectorized vest",
+    "B": "a white flag 20 cm wide",
+    "C": "a red flag at least 30 cm long and wide",
+    "answer": "C",
+    "imageDesc": null,
+    "info": "RA 4136 requires a red flag at least 30 cm long and wide on every projecting end of an over-1-meter load."
+  },
+  {
+    "n": 8,
+    "q": "The color of a motor vehicle's headlights must be:",
+    "A": "white or yellowish white",
+    "B": "blue or green",
+    "C": "red or amber",
+    "answer": "A",
+    "imageDesc": null,
+    "info": "RA 4136 Sec 34 requires headlights in white or yellowish white for proper road illumination."
+  },
+  {
+    "n": 9,
+    "q": "Taillights must be red and visible from a distance of:",
+    "A": "100 meters",
+    "B": "150 meters",
+    "C": "50 meters",
+    "answer": "A",
+    "imageDesc": null,
+    "info": "RA 4136 Sec 34 requires red taillights visible within 100 meters so following drivers see you at night."
+  },
+  {
+    "n": 10,
+    "q": "Every internal-combustion motor vehicle must have a muffler and must not emit:",
+    "A": "carbon dioxide",
+    "B": "any exhaust at all",
+    "C": "unnecessary or disagreeable smoke or noise",
+    "answer": "C",
+    "imageDesc": null,
+    "info": "RA 4136 mandates mufflers and bans operating a vehicle so as to make unnecessary smoke or noise."
+  },
+  {
+    "n": 11,
+    "q": "Overtaking on a curve or grade when your view is obstructed within 500 feet (150 m) is:",
+    "A": "allowed for motorcycles",
+    "B": "allowed at night",
+    "C": "prohibited",
+    "answer": "C",
+    "imageDesc": null,
+    "info": "LTO rules ban overtaking on curves or grades with under 500 ft (150 m) visibility; you cannot see oncoming traffic."
+  },
+  {
+    "n": 12,
+    "q": "Overtaking another vehicle at an intersection is:",
+    "A": "allowed anytime",
+    "B": "allowed only for motorcycles",
+    "C": "prohibited, except on multi-lane one-direction roads where you may pass on the right",
+    "answer": "C",
+    "imageDesc": null,
+    "info": "LTO CDE rules ban intersection overtaking due to crossing conflicts, except passing on the right on 2+ lane one-way roads."
+  },
+  {
+    "n": 13,
+    "q": "Overtaking at a railway grade crossing is:",
+    "A": "allowed if no train is seen",
+    "B": "allowed for light vehicles",
+    "C": "prohibited",
+    "answer": "C",
+    "imageDesc": null,
+    "info": "Never overtake at a railway crossing; a stalled or slow pass in front of a train is fatal."
+  },
+  {
+    "n": 14,
+    "q": "Overtaking on the right side is allowed when:",
+    "A": "the vehicle ahead is visibly turning left",
+    "B": "you are in a hurry",
+    "C": "the road is a two-way single lane",
+    "answer": "A",
+    "imageDesc": null,
+    "info": "LTO CDE allows passing on the right when the vehicle ahead is visibly turning left or on 2+ lanes in one direction."
+  },
+  {
+    "n": 15,
+    "q": "Before crossing a through highway or railroad where no hazard is apparent, you may slow to:",
+    "A": "5 mph (8 kph) instead of a full stop",
+    "B": "20 kph",
+    "C": "a full stop only",
+    "answer": "A",
+    "imageDesc": null,
+    "info": "RA 4136 requires a full stop before through highways/railroads, but allows slowing to 5 mph (8 kph) when clearly no hazard exists."
+  },
+  {
+    "n": 16,
+    "q": "At an intersection where vehicles go in different directions, priority goes to:",
+    "A": "the bigger vehicle",
+    "B": "the vehicle on the left",
+    "C": "the vehicle on the right",
+    "answer": "C",
+    "imageDesc": null,
+    "info": "LTO right-of-way rules: the vehicle on the right has priority when paths cross from different directions."
+  },
+  {
+    "n": 17,
+    "q": "On a steep grade where two vehicles meet and only one can pass, priority goes to:",
+    "A": "the uphill vehicle",
+    "B": "the faster vehicle",
+    "C": "the downhill vehicle",
+    "answer": "A",
+    "imageDesc": null,
+    "info": "LTO right-of-way rules favor the uphill vehicle, since stopping and restarting uphill is harder and riskier."
+  },
+  {
+    "n": 18,
+    "q": "The LTO fine for driving without a valid driver's license is:",
+    "A": "Php 10,000",
+    "B": "Php 1,000",
+    "C": "Php 3,000",
+    "answer": "C",
+    "imageDesc": null,
+    "info": "Driving without a valid license carries a standard Php 3,000 LTO fine under the traffic violation schedule."
+  },
+  {
+    "n": 19,
+    "q": "The LTO fine for driving an unregistered or improperly registered motor vehicle is:",
+    "A": "Php 3,000",
+    "B": "Php 5,000",
+    "C": "Php 10,000",
+    "answer": "C",
+    "imageDesc": null,
+    "info": "Unregistered operation is fined Php 10,000 against the owner; always keep registration updated."
+  },
+  {
+    "n": 20,
+    "q": "The first-offense fine for reckless driving is:",
+    "A": "Php 2,000",
+    "B": "Php 5,000",
+    "C": "Php 1,000",
+    "answer": "A",
+    "imageDesc": null,
+    "info": "Reckless driving (operating without reasonable caution) is fined Php 2,000 on first offense per LTO schedule."
+  },
+  {
+    "n": 21,
+    "q": "Under RA 10930, a driver's license is valid for 5 years reckoned from:",
+    "A": "the date of first violation",
+    "B": "the date of the exam",
+    "C": "the birthdate of the licensee",
+    "answer": "C",
+    "imageDesc": null,
+    "info": "RA 10930 sets 5-year validity counted from the licensee's birthdate, unless suspended or revoked."
+  },
+  {
+    "n": 22,
+    "q": "A driver's license may be valid for 10 years upon renewal if the holder:",
+    "A": "has no traffic violation (clean record)",
+    "B": "is over 60 years old",
+    "C": "pays double the fee",
+    "answer": "A",
+    "imageDesc": null,
+    "info": "RA 10930 rewards violation-free drivers with 10-year validity on renewal; any demerit limits it to 5 years."
+  },
+  {
+    "n": 23,
+    "q": "Which permit is NOT covered by the 5-year license validity under RA 10930?",
+    "A": "Non-professional license",
+    "B": "Professional license",
+    "C": "Student Driver's Permit",
+    "answer": "C",
+    "imageDesc": null,
+    "info": "RA 10930 expressly excludes student permits, which remain valid for only 1 year as a learning authority."
+  },
+  {
+    "n": 24,
+    "q": "Under RA 10586, DUI with NO resulting injury carries 3 months imprisonment and a fine of:",
+    "A": "Php 5,000 to Php 10,000",
+    "B": "Php 20,000 to Php 80,000",
+    "C": "Php 100,000 to Php 200,000",
+    "answer": "B",
+    "imageDesc": null,
+    "info": "RA 10586 punishes DUI without injury with 3 months jail plus Php 20,000–80,000; injury raises it to Php 100,000–200,000."
+  },
+  {
+    "n": 25,
+    "q": "A professional driver's license is perpetually revoked on the ___ DUI conviction under RA 10586:",
+    "A": "first",
+    "B": "second",
+    "C": "third",
+    "answer": "A",
+    "imageDesc": null,
+    "info": "RA 10586 confiscates and perpetually revokes a professional license on the very first DUI conviction."
+  },
+  {
+    "n": 26,
+    "q": "A non-professional license on first DUI conviction is suspended for:",
+    "A": "3 months",
+    "B": "12 months",
+    "C": "5 years",
+    "answer": "B",
+    "imageDesc": null,
+    "info": "RA 10586 suspends a non-pro license for 12 months on first conviction, and revokes it perpetually on the second."
+  },
+  {
+    "n": 27,
+    "q": "First-offense fine under the Anti-Distracted Driving Act (RA 10913):",
+    "A": "Php 1,500",
+    "B": "Php 3,000",
+    "C": "Php 5,000",
+    "answer": "C",
+    "imageDesc": null,
+    "info": "RA 10913 fines handheld-device use while driving Php 5,000 (1st), Php 10,000 (2nd), Php 15,000 + 3-month suspension (3rd)."
+  },
+  {
+    "n": 28,
+    "q": "Second-offense fine under RA 10913:",
+    "A": "Php 5,000",
+    "B": "Php 10,000",
+    "C": "Php 15,000",
+    "answer": "B",
+    "imageDesc": null,
+    "info": "RA 10913 escalates to Php 10,000 on second offense, then Php 15,000 plus 3-month suspension on third."
+  },
+  {
+    "n": 29,
+    "q": "Third-offense penalty under RA 10913:",
+    "A": "Php 10,000 only",
+    "B": "Php 15,000 and 3-month license suspension",
+    "C": "Php 5,000 and warning",
+    "answer": "B",
+    "imageDesc": null,
+    "info": "A third distracted-driving offense brings Php 15,000 plus 3-month suspension; a fourth means revocation."
+  },
+  {
+    "n": 30,
+    "q": "Under RA 10054, who must wear a standard protective helmet?",
+    "A": "The driver only",
+    "B": "Both driver and back rider",
+    "C": "Only riders on highways",
+    "answer": "B",
+    "imageDesc": null,
+    "info": "RA 10054 Motorcycle Helmet Act requires standard helmets for driver AND back rider at all times."
+  },
+  {
+    "n": 31,
+    "q": "First-offense fine for not wearing a standard helmet (RA 10054):",
+    "A": "Php 1,000",
+    "B": "Php 1,500",
+    "C": "Php 3,000",
+    "answer": "B",
+    "imageDesc": null,
+    "info": "RA 10054 fines helmet violations Php 1,500 (1st), Php 3,000 (2nd), Php 5,000 (3rd), Php 10,000 + confiscation after."
+  },
+  {
+    "n": 32,
+    "q": "Third-offense fine for helmet violation (RA 10054):",
+    "A": "Php 3,000",
+    "B": "Php 5,000",
+    "C": "Php 10,000",
+    "answer": "B",
+    "imageDesc": null,
+    "info": "Helmet fines escalate Php 1,500 → Php 3,000 → Php 5,000; a fourth costs Php 10,000 plus license confiscation."
+  },
+  {
+    "n": 33,
+    "q": "Under RA 8750 Seat Belts Use Act, seatbelts are required for:",
+    "A": "the driver only",
+    "B": "driver and front-seat passengers",
+    "C": "back-seat passengers only",
+    "answer": "B",
+    "imageDesc": null,
+    "info": "RA 8750 requires the driver and front-seat passengers of private and public vehicles to buckle up."
+  },
+  {
+    "n": 34,
+    "q": "First-offense fine for seatbelt violation (RA 8750):",
+    "A": "Php 500",
+    "B": "Php 1,000",
+    "C": "Php 3,000",
+    "answer": "B",
+    "imageDesc": null,
+    "info": "RA 8750 fines go Php 1,000 (1st), Php 2,000 (2nd), Php 5,000 plus suspension (3rd); driver and operator are liable."
+  },
+  {
+    "n": 35,
+    "q": "Second-offense fine for seatbelt violation (RA 8750):",
+    "A": "Php 1,000",
+    "B": "Php 2,000",
+    "C": "Php 5,000",
+    "answer": "B",
+    "imageDesc": null,
+    "info": "Seatbelt fines escalate Php 1,000 → Php 2,000 → Php 5,000 with suspension on subsequent offenses."
+  },
+  {
+    "n": 36,
+    "q": "Third-offense penalty for violating RA 10666 (child aboard motorcycle):",
+    "A": "Php 5,000 only",
+    "B": "Php 10,000 and 1-month license suspension",
+    "C": "Php 3,000 and warning",
+    "answer": "B",
+    "imageDesc": null,
+    "info": "RA 10666 third offenses bring Php 10,000 plus 1-month suspension, after Php 3,000 (1st) and Php 5,000 (2nd)."
+  },
+  {
+    "n": 37,
+    "q": "Motorcycles allowed on expressways must have engine displacement of:",
+    "A": "200cc and above",
+    "B": "400cc and above",
+    "C": "any displacement",
+    "answer": "B",
+    "imageDesc": null,
+    "info": "Sub-400cc motorcycles are banned from expressways; only 400cc-and-above bikes have the speed and stability required."
+  },
+  {
+    "n": 38,
+    "q": "Motor vehicle registration must be renewed:",
+    "A": "every year",
+    "B": "every 3 years",
+    "C": "only when sold",
+    "answer": "A",
+    "imageDesc": null,
+    "info": "PH registration is yearly; driving unregistered risks a Php 10,000 fine, so renew on schedule."
+  },
+  {
+    "n": 39,
+    "q": "A load projecting beyond the vehicle at night must show red lights visible from at least:",
+    "A": "30 meters",
+    "B": "50 meters",
+    "C": "100 meters",
+    "answer": "B",
+    "imageDesc": null,
+    "info": "RA 4136 requires red lights (in place of daytime red flags) visible at least 50 meters on projecting loads at night."
+  },
+  {
+    "n": 40,
+    "q": "A professional license differs from non-professional because it allows driving:",
+    "A": "only motorcycles",
+    "B": "for hire or compensation",
+    "C": "without registration",
+    "answer": "B",
+    "imageDesc": null,
+    "info": "A professional license authorizes operating vehicles for compensation or hire; non-pro is strictly private use."
+  }
+]
